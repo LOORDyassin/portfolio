@@ -121,6 +121,9 @@ header{
     width: 100%;
     padding: 20px 10%;
 }
+.icon{
+    border-radius: 50%;
+}
 header.sticky{
     background: var(--bg-color);
     border-bottom: 1px solid var(--secon-bg-color);
