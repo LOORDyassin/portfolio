@@ -52,7 +52,7 @@ menuIcon.onclick = ()=>{
 }
 window.onscroll = ()=>{
     menuIcon.classList.remove("bx-x");
-    navlist.classList.toggle("open");
+    navlist.classList.remove("open");
 }
 //
 const observer = new IntersectionObserver((entries)=>{
