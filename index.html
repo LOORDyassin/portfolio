@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/it's me.png" class="icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body>
     <header>
@@ -285,18 +288,68 @@
             <span>ask me question</span>
             <h2>Contact Me</h2>
         </div>
-        <form action="#" class="scroll-bottom">
-            <input type="text" placeholder="Your Name">
-            <input type="text" placeholder="Your Email">
-            <input type="text" placeholder="Your Address">
-            <input type="number" placeholder="Phone Number">
-            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+        <form name="contact-form"  class="scroll-bottom">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="text" name="email" placeholder="Your Email" required>
+            <input type="text" name="address" placeholder="Your Address" required>
+            <input type="number" name="number" placeholder="Phone Number" required>
+            <textarea name="message" id="" cols="30" rows="10" placeholder="Your Message" required></textarea>
             <div class="btn-box formBtn">
                 <button type="submit" class="btn">Send Message</button>
             </div>
         </form>
     </section>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyC464iIMjm00NrVk7UqiBg7zmto3yH-AKACiiQezPA98qucZqc9k5MEqPzh05MsJ5T/exec';
+    
+        document.addEventListener('DOMContentLoaded', function () {
+        const form = document.forms['contact-form'];
 
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+
+            // Show SweetAlert immediately when the submit button is clicked
+            Swal.fire({
+                icon: 'info',
+                title: 'Please wait...',
+                text: 'Sending your message',
+                showConfirmButton: false,
+                allowOutsideClick: false
+            });
+
+            // Make the fetch request to the server
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                // Handle response here
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: 'Your message is sent. Thank you for reaching out.',
+                    timer: 2000, // Set timer for 2 seconds
+                    timerProgressBar: true,
+                    showConfirmButton: false,
+                    allowOutsideClick: false,
+                    onClose: () => {
+                        // Submit the form data after the alert is closed
+                        form.submit();
+                    }
+                }).then(() => { window.location.reload(); }); // Reload the page after successful submission
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                // Show an error alert if there's an issue with sending the message
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong! Please try again later.'
+                });
+            });
+        });
+    });
+    </script>
+
+    <script src="sweetalert2.min.js"></script>
+    <script src="sweetalert2/dist/sweetalert2.min.js"></script>
     <footer>
         <p class="scroll-scale">Copyright &copy; 2024 by LOORD.Y! || All Right Reservd.</p>
         <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
