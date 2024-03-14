@@ -66,7 +66,16 @@
         transform: translateY(0);
     }
 }
-
+@keyframes bounce {
+    from {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    to {
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+}
 *{
     padding: 0;
     margin: 0;
@@ -121,9 +130,6 @@ header{
     width: 100%;
     padding: 20px 10%;
 }
-.icon{
-    border-radius: 50%;
-}
 header.sticky{
     background: var(--bg-color);
     border-bottom: 1px solid var(--secon-bg-color);
@@ -164,7 +170,7 @@ span{
     color: var(--hover-color);
 }
 #menu-icon{
-    font-size: 1.8rem;
+    font-size: 2rem;
     z-index: 10001;
     cursor: pointer;
     margin-left: 25px;
@@ -172,6 +178,25 @@ span{
     border-radius: 3px;
     color: var(--secon-bg-color);
     display: none;
+}
+#message-minus-icon{
+    font-size: 2rem;
+    z-index: 10001;
+    cursor: pointer;
+    margin-left: 100px;
+    background: var(--hover-color);
+    border-radius: 3px;
+    color: var(--secon-bg-color);
+    display: none;
+}
+#conversation-icon{
+    font-size: 2.7rem;
+    font-size: 60px;
+    margin-left: 90%;
+    top: 75%;
+    color: var(--hover-color);
+    position: fixed;
+    animation: bounce 1s infinite alternate;
 }
 section{
     padding: 100px 10%;
@@ -761,6 +786,12 @@ footer a i{
     #menu-icon {
         display: block;
         transition: all .4s ease;
+    }
+    #message-minus-icon {
+        display: block;
+    }
+    #conversation-icon{
+        display: none;
     }
     #menu-icon.bx-x{
         transform: rotate(-180deg);
