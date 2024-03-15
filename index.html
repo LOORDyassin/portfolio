@@ -310,7 +310,6 @@
         form.addEventListener('submit', e => {
             e.preventDefault();
 
-            // Show SweetAlert immediately when the submit button is clicked
             Swal.fire({
                 icon: 'info',
                 title: 'Please wait...',
@@ -319,27 +318,24 @@
                 allowOutsideClick: false
             });
 
-            // Make the fetch request to the server
             fetch(scriptURL, { method: 'POST', body: new FormData(form)})
             .then(response => {
-                // Handle response here
+
                 Swal.fire({
                     icon: 'success',
                     title: 'Success!',
                     text: 'Your message is sent. Thank you for reaching out.',
-                    timer: 2000, // Set timer for 2 seconds
+                    timer: 2000, 
                     timerProgressBar: true,
                     showConfirmButton: false,
                     allowOutsideClick: false,
                     onClose: () => {
-                        // Submit the form data after the alert is closed
                         form.submit();
                     }
-                }).then(() => { window.location.reload(); }); // Reload the page after successful submission
+                }).then(() => { window.location.reload(); });
             })
             .catch(error => {
                 console.error('Error!', error.message);
-                // Show an error alert if there's an issue with sending the message
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
