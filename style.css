@@ -196,6 +196,7 @@ span{
     top: 75%;
     color: var(--hover-color);
     position: fixed;
+    z-index: 1;
     animation: bounce 1s infinite alternate;
 }
 section{
