@@ -2,6 +2,7 @@
 
 ![image](https://github.com/LOORDyassin/portfolio/assets/151580584/8edb672a-58bc-4f0c-9857-c5b87c5f715a) ![image](https://github.com/LOORDyassin/portfolio/assets/151580584/7573b492-fe66-49f7-98ee-4bb96fa9555d) ![image](https://github.com/LOORDyassin/portfolio/assets/151580584/85e89b6c-4bdf-42ee-9264-b06d2f63af97)
 
-![image](https://github.com/LOORDyassin/portfolio/assets/151580584/bcd100bb-970a-4a77-a416-a769a801d736) ![Uploading image.png…]()
+![image](https://github.com/LOORDyassin/portfolio/assets/151580584/bcd100bb-970a-4a77-a416-a769a801d736) ![image](https://github.com/LOORDyassin/portfolio/assets/151580584/5d5c7012-97d4-4796-921f-4eeb524af80c)
+
 
 
